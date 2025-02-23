@@ -1,0 +1,552 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+.chat-container {
+  width: 95%;
+  max-width: 1000px;
+  height: 90vh;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.chat-header {
+  padding: 20px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-content i {
+  font-size: 24px;
+  color: #764ba2;
+}
+
+.header-content h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.header-actions button {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.header-actions button:hover {
+  background: #f0f0f0;
+  color: #764ba2;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #f8f9fa;
+}
+
+.welcome-message {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.welcome-message h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #764ba2;
+}
+
+.message {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  max-width: 80%;
+  line-height: 1.5;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-message {
+  background: #667eea;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+}
+
+.bot-message {
+  background: white;
+  color: #333;
+  margin-right: auto;
+  border-bottom-left-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.chat-input-container {
+  padding: 20px;
+  background: #fff;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 10px;
+}
+
+#userInput {
+  flex-grow: 1;
+  padding: 12px 20px;
+  border: 2px solid #eee;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+#userInput:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#sendButton {
+  background: #667eea;
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#sendButton:hover {
+  background: #764ba2;
+  transform: scale(1.05);
+}
+
+#sendButton i {
+  font-size: 1.2rem;
+}
+
+/* Scrollbar Styling */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #764ba2;
+}
+
+/* Loading Animation */
+.typing-indicator {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  gap: 5px;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: #667eea;
+  border-radius: 50%;
+  animation: bounce 1.5s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chat-container {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .message {
+    max-width: 90%;
+  }
+
+  .header-content h1 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Add these styles */
+.back-button {
+  color: #666;
+  text-decoration: none;
+  padding: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button:hover {
+  background: #f0f0f0;
+  color: var(--primary-color);
+}
+
+/* Update header-content styles */
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-content i {
+  font-size: 24px;
+  color: #764ba2;
+}
+
+.header-content h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Add these new styles to your existing CSS */
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --message-gradient: linear-gradient(135deg, #6b8dd6 0%, #8e37d7 100%);
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --error-color: #dc3545;
+}
+
+/* Enhanced Message Styles */
+.message {
+  position: relative;
+  padding: 15px 20px;
+  border-radius: 15px;
+  max-width: 75%;
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease;
+  margin-bottom: 25px;
+}
+
+.user-message {
+  background: var(--message-gradient);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+}
+
+.bot-message {
+  background: white;
+  margin-right: auto;
+  border-bottom-left-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Status Badge */
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-left: 10px;
+}
+
+.status-badge.online i {
+  color: var(--success-color);
+}
+
+/* Suggestion Chips */
+.suggestion-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.chip {
+  background: rgba(102, 126, 234, 0.1);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-color);
+}
+
+.chip:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Enhanced Input Area */
+.input-wrapper {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 25px;
+  border: 2px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-actions {
+  display: flex;
+  gap: 5px;
+  padding-right: 10px;
+}
+
+.input-actions button {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.input-actions button:hover {
+  background: #f0f0f0;
+  color: var(--primary-color);
+}
+
+/* Voice Input Button */
+#voiceInput {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+#voiceInput:hover {
+  background: #f0f0f0;
+  color: var(--primary-color);
+}
+
+/* Voice Feedback Animation */
+.voice-feedback {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.voice-wave {
+  display: flex;
+  gap: 3px;
+}
+
+.voice-wave span {
+  width: 3px;
+  height: 20px;
+  background: var(--primary-color);
+  border-radius: 3px;
+  animation: wave 1s ease-in-out infinite;
+}
+
+.voice-wave span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.voice-wave span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.voice-wave span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes wave {
+  50% {
+    height: 40px;
+  }
+}
+
+/* Emoji Panel */
+.emoji-panel {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.emoji-panel button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.emoji-panel button:hover {
+  transform: scale(1.2);
+}
+
+/* Welcome Message Enhancement */
+.welcome-message {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.welcome-avatar {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-gradient);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-avatar i {
+  font-size: 40px;
+  color: white;
+}
+
+/* Dark Theme Support */
+body.dark-theme {
+  background: #1a1a1a;
+}
+
+.dark-theme .chat-container {
+  background: rgba(30, 30, 30, 0.95);
+}
+
+.dark-theme .chat-header {
+  background: #2d2d2d;
+  border-bottom-color: #333;
+}
+
+.dark-theme .message {
+  background: #2d2d2d;
+  color: #fff;
+}
+
+.dark-theme .input-wrapper {
+  background: #2d2d2d;
+  border-color: #333;
+}
+
+.dark-theme #userInput {
+  color: #fff;
+  background: transparent;
+}
+
+/* Add these to your existing responsive styles */
+@media (max-width: 768px) {
+  .suggestion-chips {
+    flex-direction: column;
+  }
+
+  .emoji-panel {
+    right: 10px;
+    left: 10px;
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
