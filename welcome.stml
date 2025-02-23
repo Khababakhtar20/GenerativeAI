@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to AI Assistant</title>
+    <link rel="stylesheet" href="welcome.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-content">
+        <div class="logo">
+          <i class="fas fa-robot"></i>
+          <span>AI Assistant</span>
+        </div>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+          <a href="index.html" class="cta-button">Launch Chat</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Your Intelligent AI Chat Assistant</h1>
+        <p>
+          Experience the power of AI-driven conversations with our advanced chat
+          assistant
+        </p>
+        <div class="cta-buttons">
+          <a href="index.html" class="primary-button">
+            <i class="fas fa-comments"></i>
+            Start Chatting
+          </a>
+          <a href="#features" class="secondary-button">
+            <i class="fas fa-info-circle"></i>
+            Learn More
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img
+          src="https://your-image-url.com/ai-assistant.svg"
+          alt="AI Assistant Illustration"
+        />
+      </div>
+    </header>
+
+    <section id="features" class="features">
+      <h2>Why Choose Our AI Assistant?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fas fa-brain"></i>
+          <h3>Intelligent Responses</h3>
+          <p>Powered by advanced AI to provide accurate and helpful answers</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-bolt"></i>
+          <h3>Real-time Chat</h3>
+          <p>Get instant responses to your questions anytime</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Secure & Private</h3>
+          <p>Your conversations are protected and private</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-universal-access"></i>
+          <h3>Easy to Use</h3>
+          <p>Simple and intuitive interface for everyone</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-content">
+        <h2>About Our AI Assistant</h2>
+        <p>
+          Our AI Assistant is designed to make your life easier. Whether you
+          need help with questions, tasks, or just want to chat, we're here for
+          you 24/7.
+        </p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>99%</h3>
+            <p>Accuracy Rate</p>
+          </div>
+          <div class="stat-item">
+            <h3>24/7</h3>
+            <p>Availability</p>
+          </div>
+          <div class="stat-item">
+            <h3>1M+</h3>
+            <p>Users Served</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <div class="logo">
+            <i class="fas fa-robot"></i>
+            <span>AI Assistant</span>
+          </div>
+          <p>Your intelligent chat companion</p>
+        </div>
+        <div class="footer-links">
+          <div class="link-group">
+            <h4>Quick Links</h4>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="index.html">Chat Now</a>
+          </div>
+          <div class="link-group">
+            <h4>Connect</h4>
+            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 AI Assistant. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
